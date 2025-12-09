@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kovasznay Flow Animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #202637 0, #050711 55%, #000000 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      max-width: 960px;
+      width: 100%;
+      background: rgba(17, 24, 39, 0.9);
+      border-radius: 18px;
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 24px 24px 20px;
+      backdrop-filter: blur(16px);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #9ca3af;
+    }
+
+    .badge-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.75rem;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .video-wrapper {
+      position: relative;
+      margin-top: 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 18px 16px 16px;
+      }
+      .title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Kovasznay flow animation">
+    <header class="header">
+      <div class="title">Kovasznay flow (Re = 40)</div>
+      <div class="subtitle">
+        Particle trajectories in the analytic Kovasznay velocity field. 
+        The background arrows indicate the normalized velocity field; red dots show advected particles.
+      </div>
+      <div class="badge-row">
+        <div class="badge">Steady 2D Navier–Stokes benchmark</div>
+        <div class="badge">Re = 40</div>
+        <div class="badge">Analytic velocity field</div>
+      </div>
+    </header>
+
+    <section class="video-wrapper">
+      <!--
+        autoplay + muted is needed to satisfy browser autoplay policies.
+        loop ensures continuous playback.
+      -->
+      <video controls autoplay muted loop playsinline>
+        <source src="kovasznay.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <footer class="note">
+      <span><span class="dot"></span> Autoplay is muted by default; enable sound if you add audio.</span>
+      <span>Tip: Press space or use the controls to pause during explanations.</span>
+    </footer>
+  </main>
+</body>
+</html>
